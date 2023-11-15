@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TrabalhoPOO_26011.Cama" Collapsed="true">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICQAAGAEAAAAAgAEAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cama.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Pessoa" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAABAAABAAAAAAAgAAAAIAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Pessoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Paciente" Collapsed="true">
+    <Position X="2" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAGAAAABAAAAEgACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Paciente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Medico" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAUgAAAEAAAAAAABAAAAAAAAAAAACA=</HashCode>
+      <FileName>Medico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Camas" Collapsed="true">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAABAAAAAAAAAAAQAAAAAABAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Cirurgia" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAAACAAAAAAAAAUAAAAEAAgAAAAIAAAAAAAABAAAAA=</HashCode>
+      <FileName>Cirurgia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Cirurgias" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAACAAAAAAGAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Cirurgias.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Consulta" Collapsed="true">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAACAAAAABAAAUAQAAEACAAAAAgBAAAAAQAEAAAAA=</HashCode>
+      <FileName>Consulta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Consultas" Collapsed="true">
+    <Position X="7.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAIAEAAAAAEAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Consultas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Diagnostico" Collapsed="true">
+    <Position X="6" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAACAAAAABAAAUAQAAEACAAAAAgBAAAAAQAAAAAAA=</HashCode>
+      <FileName>Diagnostico.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Diagnosticos" Collapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAEAAAIAAAIAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Diagnosticos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Exame" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAATAAAAAAAAAUAAAAEACAAAAAgBAAAAgQAAEIAAE=</HashCode>
+      <FileName>Exame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Exames" Collapsed="true">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAADAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Exames.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Internamento" Collapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAACAAAAAAAhAMAAIQCAAAAAAAAIAAAACAAAAAAAA=</HashCode>
+      <FileName>Internamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Internamentos" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAQCA=</HashCode>
+      <FileName>Internamentos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Medicos" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgBAAAAAAAAAAAAAAABgAAAAAAQAAAAJA=</HashCode>
+      <FileName>Medicos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.Pacientes" Collapsed="true">
+    <Position X="2" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEEAAAAAAAAAAAAAEACAACAAAAAAAAAAAACAAEEA=</HashCode>
+      <FileName>Pacientes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrabalhoPOO_26011.IO" Collapsed="true">
+    <Position X="7" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQgAAAAAAAEBACAAAgAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>IO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="tipoSanguineo" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAIAAAAgAAAAAABAAAAAQAAAACAAAAAAIAEAAA=</HashCode>
+      <FileName>Paciente.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
