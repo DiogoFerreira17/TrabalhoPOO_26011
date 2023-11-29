@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+
 namespace TrabalhoPOO_26011
 {
     /// <summary>
@@ -22,7 +23,7 @@ namespace TrabalhoPOO_26011
         #region ATRIBUTOS
 
         static int numMedicos;
-        static List<Medico> medicos = new List<Medico>();
+        static List<Medico> medicos;
 
         #endregion
 
@@ -70,7 +71,7 @@ namespace TrabalhoPOO_26011
         /// <returns></returns>
         public static bool InserirMedico(Medico m)
         {
-            if (m != null && EncontrarMedicoLista(m))
+            if (m != null && !EncontrarMedicoLista(m))
             {
                 medicos.Add(m);
                 numMedicos++;
@@ -102,7 +103,7 @@ namespace TrabalhoPOO_26011
         /// <returns></returns>
         public static Medico ObterMedicoPorNus(int idMedico)
         {
-            return medicos.Find(m => m != null && m.IdMedico == idMedico);
+            return medicos.Find(m => m != null && m.IdMedico == idMedico);  // m => (declara variavel)  
         }
 
         /// <summary>
@@ -114,9 +115,13 @@ namespace TrabalhoPOO_26011
         {
             if(m!=null)
             {
-                foreach(Medico medico in medicos)
+                foreach (Medico medico in medicos)
                 {
-                    return true;
+                    if (medico.Equals(m))
+                    {
+                        return true;
+                    }
+                    
                 }
             }
             return false;

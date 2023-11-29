@@ -135,7 +135,7 @@ namespace TrabalhoPOO_26011
         /// </summary>
         #region ATRIBUTOS
 
-        static List<Paciente> pacientes = new List<Paciente>();
+        static List<Paciente> pacientes;
         static int numPacientes; // numero de pacientes inseridos na Lista
 
         #endregion
@@ -146,7 +146,6 @@ namespace TrabalhoPOO_26011
 
         static Pacientes() // se estiver static não precisa de inicializar na main (!!! Pacientes pacientes= new Pacientes() !!!) 
         {
-            
             if (pacientes == null)
             {
                 numPacientes = 0;
@@ -176,13 +175,13 @@ namespace TrabalhoPOO_26011
         #region OUTROS MÉTODOS
 
         /// <summary>
-        /// Método para inserir um paciente na Lista pacientes
+        /// Método para inserir um paciente na Lista 
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
         public static bool InserirPaciente(Paciente p)
         {
-            if (p != null && EncontrarPacienteLista(p))
+            if (p != null && !EncontrarPacienteLista(p))
             {
                 pacientes.Add(p);
                 numPacientes++;
@@ -192,7 +191,7 @@ namespace TrabalhoPOO_26011
         }
 
         /// <summary>
-        /// Método para remover um paciente de uma Lista
+        /// Método para remover um paciente da Lista
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
@@ -228,7 +227,10 @@ namespace TrabalhoPOO_26011
             {
                 foreach (Paciente paciente in pacientes)
                 {
-                    return true;
+                    if (paciente.Equals(p))
+                    {
+                        return true;
+                    }  
                 }
             }
             return false;

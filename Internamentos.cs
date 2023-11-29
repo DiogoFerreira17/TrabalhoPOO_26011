@@ -7,6 +7,8 @@
  * 7-11-2023
  */
 
+using System.Collections.Generic;
+
 namespace TrabalhoPOO_26011
 {
     /// <summary>
@@ -19,8 +21,7 @@ namespace TrabalhoPOO_26011
         /// </summary>
         #region ATRIBUTOS
 
-        const int MAXINTERNAMENTOS = 10;
-        static Internamento[] internamentos;
+        static List<Internamento> internamentos;
         static int numInternamentos;
 
         #endregion
@@ -32,12 +33,13 @@ namespace TrabalhoPOO_26011
         /// <summary>
         /// Construtor padrao da classe Internamentos
         /// </summary>
-        public Internamentos()
+        static Internamentos()
         {
-            numInternamentos = 0;
+            
             if (internamentos == null)
-            {
-                internamentos = new Internamento[MAXINTERNAMENTOS];
+            {   
+                numInternamentos = 0;
+                internamentos = new List<Internamento>();
             }
         }
 
@@ -51,9 +53,9 @@ namespace TrabalhoPOO_26011
         /// <summary>
         /// Faz clone do array Internamentos
         /// </summary>
-        public static Cama[] arrayInternamentos
+        public static List<Internamento> ListaInternamentos
         {
-            get { return (Cama[])internamentos.Clone(); }
+            get { return new List<Internamento>(internamentos); }
         }
 
         public static int NumInternamentos
@@ -63,7 +65,59 @@ namespace TrabalhoPOO_26011
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
+
+        /// <summary>
+        /// Metodo para inserir um internamento na Lista
+        /// </summary>
+        /// <param name="I"></param>
+        /// <returns></returns>
+        public static bool InserirInternamento(Internamento I)
+        {
+            if (I != null && !EncontrarInternamentoLista(I))
+            {
+                internamentos.Add(I);
+                numInternamentos++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Metodo para remover um internamento da Lista
+        /// </summary>
+        /// <param name="I"></param>
+        /// <returns></returns>
+        public static bool RemoverInternametno(Internamento I)
+        {
+            if (I != null && EncontrarInternamentoLista(I))
+            {
+                internamentos.Add(I);
+                numInternamentos++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para verificar se um internamento já está na Lista
+        /// </summary>
+        /// <param name="I"></param>
+        /// <returns></returns>
+        public static bool EncontrarInternamentoLista(Internamento I)
+        {
+            if (I != null)
+            {
+                foreach (Internamento internamento in internamentos)
+                {
+                    if(internamento.Equals(I))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
         #endregion
 
