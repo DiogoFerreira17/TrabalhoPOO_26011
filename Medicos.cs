@@ -8,7 +8,7 @@
  */
 
 using System;
-
+using System.Collections.Generic;
 namespace TrabalhoPOO_26011
 {
     /// <summary>
@@ -20,37 +20,38 @@ namespace TrabalhoPOO_26011
         /// Campos privados para armazenar o estado de Medicos
         /// </summary>
         #region ATRIBUTOS
-        const int MAXMEDICOS = 10;
+
         static int numMedicos;
-        static Medico[] medicos;
+        static List<Medico> medicos = new List<Medico>();
+
         #endregion
 
         #region COMPORTAMENTOS
 
         #region CONSTRUTORES
 
-        public Medicos()
+        static Medicos()
         {
-            numMedicos = 0;
             if(medicos==null)
-            {
-                medicos = new Medico[MAXMEDICOS];
+            {   
+                numMedicos = 0;
+                medicos = new List<Medico> ();
             }
         }
 
         #endregion
 
         /// <summary>
-        /// Obtém as caracteristicas do médico
+        /// Obtém as caracteristicas da Lista
         /// </summary>
         #region PROPRIEDADES
 
         /// <summary>
-        /// Faz clone do array medicos
+        /// Faz #### da Lista Medicos
         /// </summary>
-        public static Medico[] arrayMedicos
+        public static List<Medico> ListaMedicos
         {
-            get { return (Medico[])medicos.Clone(); }
+            get { return new List<Medico>(medicos); }
         }
 
         public static int NumMedicos
@@ -60,18 +61,18 @@ namespace TrabalhoPOO_26011
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
 
         /// <summary>
-        /// Método para inserir um Medico num Array 
+        /// Método para inserir um Medico na Lista
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
         public static bool InserirMedico(Medico m)
         {
-            if (m != null && numMedicos<MAXMEDICOS)
+            if (m != null && EncontrarMedicoLista(m))
             {
-                medicos[numMedicos] = m;
+                medicos.Add(m);
                 numMedicos++;
                 return true;
             }
@@ -79,45 +80,46 @@ namespace TrabalhoPOO_26011
         }
 
         /// <summary>
-        /// Método para remover um Medico de um Array
+        /// Método para remover um Medico da Lista
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
         public static bool RemoverMedico(Medico m)
         {
-            if (m != null)
+           if(m!=null && EncontrarMedicoLista(m))
             {
-                for (int i = 0; i < medicos.Length; i++)
-                {
-                    if (medicos[i] == m)
-                    {
-                        for (int j = i; j < medicos.Length - 1; j++)
-                        {
-                            medicos[j] = medicos[j + 1];
-                        }
-                        numMedicos--;
-                        return true;
-                    }
-                }
+                medicos.Remove(m);
+                numMedicos--;
+                return true;
             }
             return false;
         }
 
         /// <summary>
-        /// Método para Obter um médico pelo seu id
+        /// Método para obter um médico pelo seu id
         /// </summary>
         /// <param name="idMedico"></param>
         /// <returns></returns>
-        public static Medico ObterMedicoPorId(int idMedico)
+        public static Medico ObterMedicoPorNus(int idMedico)
         {
-            for (int i = 0; i < numMedicos; i++)
+            return medicos.Find(m => m != null && m.IdMedico == idMedico);
+        }
+
+        /// <summary>
+        /// Método para verificar se um médico está na Lista
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public static bool EncontrarMedicoLista(Medico m)
+        {
+            if(m!=null)
             {
-                if (medicos[i] != null && medicos[i].IdMedico == idMedico)
+                foreach(Medico medico in medicos)
                 {
-                    return medicos[i];
+                    return true;
                 }
             }
-            return null;
+            return false;
         }
 
         #endregion
