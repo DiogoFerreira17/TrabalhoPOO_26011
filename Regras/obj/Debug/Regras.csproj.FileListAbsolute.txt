@@ -1,0 +1,11 @@
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\bin\Debug\Regras.dll
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\bin\Debug\Regras.pdb
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\bin\Debug\Dados.dll
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\bin\Debug\ObjetosHospital.dll
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\bin\Debug\Dados.pdb
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\bin\Debug\ObjetosHospital.pdb
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\obj\Debug\Regras.csproj.AssemblyReference.cache
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\obj\Debug\Regras.csproj.CoreCompileInputs.cache
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\obj\Debug\Regras.csproj.CopyComplete
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\obj\Debug\Regras.dll
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Regras\obj\Debug\Regras.pdb

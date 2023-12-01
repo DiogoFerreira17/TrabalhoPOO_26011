@@ -1,0 +1,6 @@
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\ObjetosHospital\bin\Debug\ObjetosHospital.dll
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\ObjetosHospital\bin\Debug\ObjetosHospital.pdb
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\ObjetosHospital\obj\Debug\ObjetosHospital.csproj.AssemblyReference.cache
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\ObjetosHospital\obj\Debug\ObjetosHospital.csproj.CoreCompileInputs.cache
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\ObjetosHospital\obj\Debug\ObjetosHospital.dll
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\ObjetosHospital\obj\Debug\ObjetosHospital.pdb
