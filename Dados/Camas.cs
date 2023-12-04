@@ -7,6 +7,8 @@
  * 7-11-2023
  */
 
+using System.Collections.Generic;
+
 // Externo
 using ObjetosHospital;
 
@@ -21,9 +23,10 @@ namespace Dados
         /// Campos privados para armazenar o estado das camas
         /// </summary>
         #region ATRIBUTOS
-        const int MAXCAMAS = 10;
-        static Cama[] camas;
+
+        static List<Cama> camas;
         static int numCamas;
+
         #endregion
 
         #region COMPORTAMENTOS
@@ -33,12 +36,12 @@ namespace Dados
         /// <summary>
         /// Construtor padrao da classe Camas
         /// </summary>
-        public Camas()
+        static Camas()
         {
-            numCamas = 0;
             if (camas == null)
             {
-                camas = new Cama[MAXCAMAS];
+                numCamas = 0;
+                camas = new List<Cama>();
             }
         }
 
@@ -50,11 +53,11 @@ namespace Dados
         #region PROPRIEDADES
 
         /// <summary>
-        /// Faz clone do array Camas
+        /// Retorna a Lista
         /// </summary>
-        public static Cama[] arrayCamas
+        public static List<Cama> ListaCamas
         {
-            get { return (Cama[])camas.Clone(); }
+            get { return new List<Cama>(camas); }
         }
 
         public static int NumCamas 
@@ -64,7 +67,61 @@ namespace Dados
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
+
+        /// <summary>
+        /// Método para inserir uma cama na Lista
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool InserirCama(Cama c)
+        {
+            if(c!=null && !camas.Contains(c))
+            {
+                camas.Add(c);
+                numCamas++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para remover uma cama da Lista 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool RemoverCama(Cama c)
+        {
+            if (c != null && camas.Contains(c))
+            {
+                camas.Remove(c);
+                numCamas--;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para inserir um paciente numa cama
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static bool InserirPacienteCama(int nus)
+        {
+            if (Pacientes.ExistePacienteLista(nus))
+            {
+                foreach (Cama c in camas)
+                {
+                    if (c.Status == "livre")
+                    {
+                        c.Nus = nus;
+                        c.Status = "ocupada";
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
         #endregion
 

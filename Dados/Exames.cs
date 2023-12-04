@@ -8,6 +8,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 // Externo
 using ObjetosHospital;
@@ -23,21 +24,22 @@ namespace Dados
         /// Campos privados para armazenar o estado de Exames
         /// </summary>
         #region ATRIBUTOS
-        const int NUMEXAMES = 10;
-        static Exame[] exames;
+
+        static List<Exame> exames;
         static int numExames;
+
         #endregion
 
         #region COMPORTAMENTOS
 
         #region CONSTRUTORES
 
-        public Exames()
+        static Exames()
         {
-            numExames = 0;
             if (exames == null)
             {
-                exames = new Exame[NUMEXAMES];
+                numExames = 0;
+                exames = new List<Exame> ();
             }
         }
 
@@ -49,11 +51,11 @@ namespace Dados
         #region PROPRIEDADES
 
         /// <summary>
-        /// Faz clone do array Exames
+        /// Retorna a Lista
         /// </summary>
-        public static Exame[] arrayExames
+        public static List<Exame> ListaExames
         {
-            get { return (Exame[])exames.Clone(); }
+            get { return new List<Exame>(exames); }
         }
 
         public static int NumExames
@@ -63,7 +65,39 @@ namespace Dados
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
+
+        /// <summary>
+        /// Método para inserir um exame na Lista
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        public static bool InserirExame(Exame e)
+        {
+            if (e != null && !exames.Contains(e))
+            {
+                exames.Add(e);
+                numExames++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para remover um exame da Lista
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        public static bool RemoverExame(Exame e)
+        {
+            if (e != null && exames.Contains(e))
+            {
+                exames.Remove(e);
+                numExames--;
+                return true;
+            }
+            return false;
+        }
 
         #endregion
 

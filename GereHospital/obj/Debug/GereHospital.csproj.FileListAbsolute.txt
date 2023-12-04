@@ -13,3 +13,17 @@ C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\T
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.pdb
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\bin\Debug\Regras.dll
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\bin\Debug\Regras.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\GereHospital.exe.config
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\GereHospital.exe
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\GereHospital.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\ObjetosHospital.dll
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\Regras.dll
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\Dados.dll
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\ObjetosHospital.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\Regras.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\Dados.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.AssemblyReference.cache
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.CopyComplete
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.exe
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.pdb

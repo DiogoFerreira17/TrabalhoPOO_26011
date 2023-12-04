@@ -8,6 +8,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 // Externo
 using ObjetosHospital;
@@ -23,21 +24,22 @@ namespace Dados
         /// Campos privados para armazenar o estado de Consultas
         /// </summary>
         #region ATRIBUTOS
-        const int NUMCONSULTAS = 10;
-        static Consulta[] consultas;
+
+        static List<Consulta> consultas;
         static int numConsultas;
+
         #endregion
 
         #region COMPORTAMENTOS
 
         #region CONSTRUTORES
 
-        public Consultas()
+        static Consultas()
         {
-            numConsultas = 0;
             if (consultas == null)
             {
-                consultas = new Consulta[NUMCONSULTAS];
+                numConsultas = 0;
+                consultas = new List<Consulta>();
             }
         }
 
@@ -49,11 +51,11 @@ namespace Dados
         #region PROPRIEDADES
 
         /// <summary>
-        /// Faz clone do array consultas
+        /// Retorna a Lista
         /// </summary>
-        public static Consulta[] arrayConsultas
+        public static List<Consulta> ListaConsultas
         {
-            get { return (Consulta[])consultas.Clone(); }
+            get { return new List<Consulta>(consultas); }
         }
 
         public static int NumConsultas
@@ -64,6 +66,38 @@ namespace Dados
         #endregion
 
         #region MÉTODOS
+
+        /// <summary>
+        /// Método para inserir uma Consulta na Lista 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool InserirConsulta(Consulta c)
+        {
+            if(c!=null && !consultas.Contains(c))
+            {
+                consultas.Add(c);
+                numConsultas++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para remover uma consulta da Lista
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool RemoverConsulta(Consulta c)
+        {
+            if (c != null && consultas.Contains(c))
+            {
+                consultas.Remove(c);
+                numConsultas--;
+                return true;
+            }
+            return false;
+        }
 
         #endregion
 

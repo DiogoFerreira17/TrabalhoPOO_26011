@@ -23,7 +23,7 @@ namespace ObjetosHospital
 
         DateTime data;
         string nome;
-        static int numExames;
+        static int numExames; // para criar o id do exame automatico
         int idExame;
         int nus;
         int idMedico;

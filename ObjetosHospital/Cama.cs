@@ -38,21 +38,11 @@ namespace ObjetosHospital
         /// </summary>
         public Cama()
         {
-            numCamas++;
             status = "livre";
-            idCama = 0;
+            this.idCama = ++numCamas;
+            nus = 0;
         }
 
-        /// <summary>
-        /// Construtor parametrizado da classe Cama
-        /// </summary>
-        /// <param name="cama"></param>
-        public Cama(int nus)
-        {
-            status = "ocupada";
-            this.nus = nus;
-            this.idCama=++numCamas;
-        }
         #endregion
 
         /// <summary>
@@ -79,13 +69,9 @@ namespace ObjetosHospital
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
 
         // Método para inserir um paciente numa cama
-        public bool InserirPaciente(Paciente p)
-        {
-            return false;
-        }
 
         // Método para remover um paciente de uma cama 
 

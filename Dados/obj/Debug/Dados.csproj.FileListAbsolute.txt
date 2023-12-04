@@ -7,3 +7,12 @@ C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\T
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Dados\obj\Debug\Dados.csproj.CopyComplete
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Dados\obj\Debug\Dados.dll
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\Dados\obj\Debug\Dados.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\bin\Debug\Dados.dll
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\bin\Debug\Dados.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\bin\Debug\ObjetosHospital.dll
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\bin\Debug\ObjetosHospital.pdb
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\obj\Debug\Dados.csproj.AssemblyReference.cache
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\obj\Debug\Dados.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\obj\Debug\Dados.csproj.CopyComplete
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\obj\Debug\Dados.dll
+C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\Dados\obj\Debug\Dados.pdb

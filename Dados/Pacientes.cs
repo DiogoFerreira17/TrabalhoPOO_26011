@@ -103,6 +103,23 @@ namespace Dados
             return pacientes.Find(p => p != null && p.Nus == nus);
         }
 
+        /// <summary>
+        /// Método para verificar se existe um paciente na Lista através do seu NUS
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static bool ExistePacienteLista(int nus)
+        {
+            foreach(Paciente p in pacientes)
+            {
+                if (p.Nus == nus)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         #endregion
 
         #endregion

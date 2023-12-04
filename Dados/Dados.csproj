@@ -49,6 +49,7 @@
     <Compile Include="Consultas.cs" />
     <Compile Include="Diagnosticos.cs" />
     <Compile Include="Exames.cs" />
+    <Compile Include="InOut.cs" />
     <Compile Include="Internamentos.cs" />
     <Compile Include="Medicos.cs" />
     <Compile Include="Pacientes.cs" />

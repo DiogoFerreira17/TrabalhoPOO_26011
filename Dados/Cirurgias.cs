@@ -7,6 +7,8 @@
  * 7-11-2023
  */
 
+using System.Collections.Generic;
+
 // Externo
 using ObjetosHospital;
 
@@ -22,8 +24,7 @@ namespace Dados
         /// </summary>
         #region ATRIBUTOS
 
-        const int MAXCIRURGIAS = 10;
-        static Cirurgia[] cirurgias;
+        static List<Cirurgia> cirurgias;
         static int numCirurgias;
 
         #endregion
@@ -35,12 +36,12 @@ namespace Dados
         /// <summary>
         /// Construtor padrao da classe Cirurgias
         /// </summary>
-        public Cirurgias()
+        static Cirurgias()
         {
-            numCirurgias = 0;
             if (cirurgias == null)
             {
-                cirurgias = new Cirurgia[MAXCIRURGIAS];
+                numCirurgias = 0;
+                cirurgias = new List<Cirurgia>();
             }
         }
 
@@ -52,11 +53,11 @@ namespace Dados
         #region PROPRIEDADES
 
         /// <summary>
-        /// Faz clone do array Cirurgias
+        /// Retorna a Lista
         /// </summary>
-        public static Cirurgia[] arrayCirurgias
+        public static List<Cirurgia> ListaCirurgias
         {
-            get { return (Cirurgia[])cirurgias.Clone(); }
+            get { return new List<Cirurgia>(cirurgias); }
         }
 
         public static int NumCirurgias
@@ -67,6 +68,38 @@ namespace Dados
         #endregion
 
         #region MÉTODOS
+
+        /// <summary>
+        /// Método para inserir uma cirurgia na Lista
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool InserirCirurgia(Cirurgia c)
+        {
+            if (c != null && !cirurgias.Contains(c))
+            {
+                cirurgias.Add(c);
+                numCirurgias++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para remover uma cirurgia da Lista
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool RemoverCirurgia(Cirurgia c)
+        {
+            if (c != null && cirurgias.Contains(c))
+            {
+                cirurgias.Remove(c);
+                numCirurgias--;
+                return true;
+            }
+            return false;
+        }
 
         #endregion
 

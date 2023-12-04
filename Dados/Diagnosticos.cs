@@ -7,6 +7,8 @@
  * 7-11-2023
  */
 
+using System.Collections.Generic;
+
 // Externo
 using ObjetosHospital;
 
@@ -22,8 +24,7 @@ namespace Dados
         /// </summary>
         #region ATRIBUTOS
 
-        const int MAXDIAGNOSTICOS = 10;
-        static Diagnostico[] diagnosticos;
+        static List<Diagnostico> diagnosticos;
         static int numDiagnosticos;
 
         #endregion
@@ -35,12 +36,12 @@ namespace Dados
         /// <summary>
         /// Construtor padrao da classe Diagnosticos
         /// </summary>
-        public Diagnosticos()
+        static Diagnosticos()
         {
-            numDiagnosticos = 0;
             if (diagnosticos == null)
             {
-                diagnosticos = new Diagnostico[MAXDIAGNOSTICOS];
+                numDiagnosticos = 0;
+                diagnosticos = new List<Diagnostico>();
             }
         }
 
@@ -54,9 +55,9 @@ namespace Dados
         /// <summary>
         /// Faz clone do array Diagnosticos
         /// </summary>
-        public static Diagnostico[] arrayDiagnosticos
+        public static List<Diagnostico> ListaDiagnosticos
         {
-            get { return (Diagnostico[])diagnosticos.Clone(); }
+            get { return new List<Diagnostico>(diagnosticos); }
         }
 
         public static int NumDiagnosticos
@@ -66,7 +67,39 @@ namespace Dados
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
+
+        /// <summary>
+        /// Método para inserir um diagnostico na Lista
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public static bool InserirDiagnostico(Diagnostico d)
+        {
+            if(d!=null && !diagnosticos.Contains(d))
+            {
+                diagnosticos.Add(d);
+                numDiagnosticos++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para remover um diagnostico da Lista
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public static bool RemoverDiagnostico(Diagnostico d)
+        {
+            if (d != null && diagnosticos.Contains(d))
+            {
+                diagnosticos.Remove(d);
+                numDiagnosticos--;
+                return true;
+            }
+            return false;
+        }
 
         #endregion
 

@@ -51,7 +51,7 @@ namespace Dados
         #region PROPRIEDADES
 
         /// <summary>
-        /// Faz #### da Lista Medicos
+        /// Retorna a Lista 
         /// </summary>
         public static List<Medico> ListaMedicos
         {
@@ -74,7 +74,7 @@ namespace Dados
         /// <returns></returns>
         public static bool InserirMedico(Medico m)
         {
-            if (m != null && !EncontrarMedicoLista(m))
+            if (m != null && !medicos.Contains(m))
             {
                 medicos.Add(m);
                 numMedicos++;
@@ -90,7 +90,7 @@ namespace Dados
         /// <returns></returns>
         public static bool RemoverMedico(Medico m)
         {
-           if(m!=null && EncontrarMedicoLista(m))
+           if(m!=null && medicos.Contains(m))
             {
                 medicos.Remove(m);
                 numMedicos--;
@@ -107,27 +107,6 @@ namespace Dados
         public static Medico ObterMedicoPorNus(int idMedico)
         {
             return medicos.Find(m => m != null && m.IdMedico == idMedico);  // m => (declara variavel)  
-        }
-
-        /// <summary>
-        /// Método para verificar se um médico está na Lista
-        /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        public static bool EncontrarMedicoLista(Medico m)
-        {
-            if(m!=null)
-            {
-                foreach (Medico medico in medicos)
-                {
-                    if (medico.Equals(m))
-                    {
-                        return true;
-                    }
-                    
-                }
-            }
-            return false;
         }
 
         #endregion

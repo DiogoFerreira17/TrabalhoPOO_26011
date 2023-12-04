@@ -54,7 +54,7 @@ namespace Dados
         #region PROPRIEDADES
 
         /// <summary>
-        /// Faz clone do array Internamentos
+        /// Retorna a Lista
         /// </summary>
         public static List<Internamento> ListaInternamentos
         {
