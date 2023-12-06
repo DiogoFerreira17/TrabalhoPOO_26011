@@ -82,7 +82,7 @@ namespace ObjetosHospital
 
         #endregion
 
-        #region Metodos
+        #region OUTROS Metodos
 
         #endregion
 

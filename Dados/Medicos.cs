@@ -106,7 +106,7 @@ namespace Dados
         /// <returns></returns>
         public static Medico ObterMedicoPorNus(int idMedico)
         {
-            return medicos.Find(m => m != null && m.IdMedico == idMedico);  // m => (declara variavel)  
+            return medicos.Find(m => m != null && m.IdMedico == idMedico);  // m => (declara variavel)
         }
 
         #endregion

@@ -123,6 +123,48 @@ namespace Dados
             return false;
         }
 
+        /// <summary>
+        /// Método para remover um paciente de uma cama
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static bool RemoverPacienteCama(int nus)
+        {
+            if (Pacientes.ExistePacienteLista(nus))
+            {
+                foreach (Cama c in camas)
+                {
+                    if (c.Nus==nus)
+                    {
+                        c.Nus = 0;
+                        c.Status = "livre";
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para retornar o id da cama de um determinado paciente
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static int IdCamaPaciente(int nus)
+        {
+            if (Pacientes.ExistePacienteLista(nus))
+            {
+                foreach(Cama c in camas)
+                {
+                    if (c.Nus == nus)
+                    {
+                        return c.IdCama; // retorna id para identificar a cama no internamento
+                    }
+                }
+            }
+            return 0;
+        }
+
         #endregion
 
         #endregion

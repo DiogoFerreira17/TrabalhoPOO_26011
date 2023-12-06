@@ -36,7 +36,7 @@ namespace ObjetosHospital
         /// <summary>
         /// Construtor padrao da classe Diagnostico
         /// </summary>
-        public Diagnostico() // nao cria objetos
+        public Diagnostico() 
         {
             data = new DateTime();
             descricao = string.Empty;
@@ -55,7 +55,7 @@ namespace ObjetosHospital
         /// <param name="descricao"></param>
         public Diagnostico(DateTime data, int idMedico,int nus,int idExame, string descricao)
         {
-            this.data = new DateTime();
+            this.data = data;
             this.descricao = descricao;
             this.idMedico = idMedico;
             this.nus = nus;
@@ -101,11 +101,11 @@ namespace ObjetosHospital
 
         #endregion
 
-        #region OVERRIDE
+        #region OUTROS MÉTODOS
 
         #endregion
 
-        #region OUTROS MÉTODOS
+        #region OVERRIDE
 
         /// <summary>
         /// Metodo para mostrar parametros do diagnostico
@@ -113,7 +113,7 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("DataDiagnóstico:{0} idExame:{1} NUS:{2} IdMédico:{3} Descrição:{4}", Data,IdExame,Nus,idMedico,Descricao);
+            return String.Format("DataDiagnóstico:{0} idExame:{1} NUS:{2} IdMédico:{3} Descrição:{4}", Data, IdExame, Nus, idMedico, Descricao);
         }
 
         #endregion

@@ -99,6 +99,23 @@ namespace Dados
             return false;
         }
 
+        /// <summary>
+        /// Método para retornar o id de um exame feito por um paciente com determinado NUS
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static int VerificaExamePaciente(int nus,int idExame)
+        {
+            foreach (Exame e in exames)
+            {
+                if (e.Nus == nus && e.IdExame==idExame)
+                {
+                    return e.IdExame;
+                }
+            }
+            return 0;
+        }
+
         #endregion
 
         #endregion

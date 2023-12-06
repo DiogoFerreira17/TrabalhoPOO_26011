@@ -48,11 +48,12 @@ namespace ObjetosHospital
         /// </summary>
         /// <param name="nus"></param>
         /// <param name="idMedico"></param>
-        public Cirurgia(DateTime dataCirurgia,int nus, int idMedico)
+        public Cirurgia(DateTime dataCirurgia,int nus, int idMedico,double precoCirurgia)
         {
             this.dataCirurgia = dataCirurgia;
             this.nus = nus;
             this.idMedico = idMedico;
+            this.precoCirurgia= precoCirurgia;
         }
 
         #endregion
@@ -87,7 +88,7 @@ namespace ObjetosHospital
         }
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
 
         // Método para calcular os dias que o paciente esteve internado
 
@@ -103,7 +104,7 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("dataCirurgia:{0} NUS:{1} IdMédico:{2} preçoCirurgia:{3}", DataCirurgia,Nus,IdMedico,PrecoCirurgia);
+            return String.Format("dataCirurgia:{0} NUS:{1} IdMédico:{2} preçoCirurgia:{3}$", DataCirurgia,Nus,IdMedico,PrecoCirurgia);
         }
 
         #endregion

@@ -7,7 +7,10 @@
  * 7-11-2023
  */
 
+using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+
 
 // Externo
 using ObjetosHospital;
@@ -77,7 +80,7 @@ namespace Dados
         /// <returns></returns>
         public static bool InserirInternamento(Internamento I)
         {
-            if (I != null && !EncontrarInternamentoLista(I))
+            if (I != null && !internamentos.Contains(I))
             {
                 internamentos.Add(I);
                 numInternamentos++;
@@ -93,7 +96,7 @@ namespace Dados
         /// <returns></returns>
         public static bool RemoverInternametno(Internamento I)
         {
-            if (I != null && EncontrarInternamentoLista(I))
+            if (I != null && internamentos.Contains(I))
             {
                 internamentos.Add(I);
                 numInternamentos++;
@@ -103,23 +106,48 @@ namespace Dados
         }
 
         /// <summary>
-        /// Método para verificar se um internamento já está na Lista
+        /// Calcula os dias que algum paciente esteve internado
         /// </summary>
-        /// <param name="I"></param>
+        /// <param name="nus"></param>
+        /// <param name="dataInicio"></param>
+        /// <param name="dataFim"></param>
         /// <returns></returns>
-        public static bool EncontrarInternamentoLista(Internamento I)
+        public static int DiasInternamentoPaciente(int nus)
         {
-            if (I != null)
+            foreach(Internamento i in internamentos)
             {
-                foreach (Internamento internamento in internamentos)
+                if (i.Nus == nus)
                 {
-                    if(internamento.Equals(I))
+                    if (i.DataInicio > i.DataFim)
                     {
-                        return true;
+                        throw new ArgumentException("A data de início não pode ser posterior à data de fim.");
                     }
+                    // Calcula a diferença em dias entre as duas datas
+                    TimeSpan diferenca = i.DataFim - i.DataInicio;
+                    int diasInternamento = diferenca.Days;
+
+                    return diasInternamento;
                 }
             }
-            return false;
+            return 0;
+        }
+        /// <summary>
+        /// Método para calcular o custo 
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static double CalculaCustoInternamento(int nus)
+        {
+            double precoDia = 1.50; // preço aleatório por cada dia internado
+            foreach(Internamento i in internamentos)
+            {
+                if (i.Nus == nus)
+                {  
+                    i.PrecoInternamento = DiasInternamentoPaciente(nus)*precoDia;
+                    return i.PrecoInternamento; // apenas para teste (a função poderia ser void)
+                }
+            }
+            return 0;
         }
 
         #endregion

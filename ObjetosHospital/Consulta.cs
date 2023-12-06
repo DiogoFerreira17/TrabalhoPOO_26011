@@ -108,7 +108,7 @@ namespace ObjetosHospital
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
 
         #endregion
 
@@ -120,7 +120,7 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("IdConsulta:{0} dataConsulta:{1} Descrição:{2} NUS:{3} IdMédico:{4} preçoConsulta:{5}",IdConsulta,Data,Descricao,Nus,IdMedico,PrecoConsulta);
+            return String.Format("IdConsulta:{0} dataConsulta:{1} Descrição:{2} NUS:{3} IdMédico:{4} preçoConsulta:{5}$",IdConsulta,Data,Descricao,Nus,IdMedico,PrecoConsulta);
         }
 
         #endregion

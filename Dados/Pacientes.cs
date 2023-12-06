@@ -49,7 +49,9 @@ namespace Dados
 
         public static List<Paciente> ListaPacientes
         {
-            get { return new List<Paciente>(pacientes); }
+            get { 
+                return new List<Paciente>(pacientes); 
+            }
         }
 
         public static int NumPacientes
@@ -68,7 +70,7 @@ namespace Dados
         /// <returns></returns>
         public static bool InserirPaciente(Paciente p)
         {
-            if (p != null && !pacientes.Contains(p))
+            if (p != null && !pacientes.Contains(p)) 
             {
                 pacientes.Add(p);
                 numPacientes++;
@@ -110,14 +112,7 @@ namespace Dados
         /// <returns></returns>
         public static bool ExistePacienteLista(int nus)
         {
-            foreach(Paciente p in pacientes)
-            {
-                if (p.Nus == nus)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return ObterPacientePorNus(nus) != null;
         }
 
         #endregion

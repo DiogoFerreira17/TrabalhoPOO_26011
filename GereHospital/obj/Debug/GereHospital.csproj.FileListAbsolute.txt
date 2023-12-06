@@ -11,7 +11,6 @@ C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\T
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.CopyComplete
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.exe
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.pdb
-C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\bin\Debug\Regras.dll
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\bin\Debug\Regras.pdb
 C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\GereHospital.exe.config
 C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\bin\Debug\GereHospital.exe
@@ -27,3 +26,4 @@ C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\Ge
 C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.CopyComplete
 C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.exe
 C:\Users\Diogo\Desktop\Programação\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.pdb
+C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\bin\Debug\Regras.dll

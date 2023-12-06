@@ -120,9 +120,11 @@ namespace ObjetosHospital
 
         #endregion
 
+        #region OUTROS MÉTODOS
+
         #endregion
 
-        #region OUTROS MÉTODOS
+        #region OVERRIDES
 
         /// <summary>
         /// Metodo para mostrar parametros do Exame
@@ -130,9 +132,13 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("IdExame:{0} DataExame:{1} NomeExame:{2} NUS:{3} idMédico:{4} Resultado:{5} Preço:{6}",IdExame,Data,Nome,Nus,IdMedico,Resultado,PrecoExame);
+            return String.Format("IdExame:{0} DataExame:{1} NomeExame:{2} NUS:{3} idMédico:{4} Resultado:{5} Preço:{6}$", IdExame, Data, Nome, Nus, IdMedico, Resultado, PrecoExame);
         }
 
         #endregion
+
+        #endregion
+
+
     }
 }

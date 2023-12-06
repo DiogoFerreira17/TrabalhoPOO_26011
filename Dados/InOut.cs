@@ -20,6 +20,9 @@ namespace Dados
     /// </summary>
     public class InOut
     {
+
+        #region IMPRIMIR
+
         /// <summary>
         /// Imprime os detalhes de todos os pacientes dentro da Lista
         /// </summary>
@@ -45,28 +48,26 @@ namespace Dados
         }
 
         /// <summary>
-        /// Imprime os detalhes de todas as consultas dentro do array
+        /// Imprime os detalhes de todas as consultas dentro da Lista
         /// </summary>
         /// <param name="consultas"></param>
-        public static void ImprimirConsultas(Consultas[] consultas)
+        public static void ImprimirConsultas(List<Consulta> consultas)
         {
-            for (int i = 0; i < consultas.Length; i++)
+            foreach (Consulta c in consultas)
             {
-                if (consultas[i] != null)
-                    Console.WriteLine(consultas[i]);
+                Console.WriteLine(c.ToString());
             }
         }
 
         /// <summary>
-        /// Imprime os detalhes de todos os exames dentro do array
+        /// Imprime os detalhes de todos os exames dentro da Lista
         /// </summary>
         /// <param name="exames"></param>
-        public static void ImprimirExames(Exames[] exames)
+        public static void ImprimirExames(List<Exame> exames)
         {
-            for (int i = 0; i < exames.Length; i++)
+            foreach (Exame e in exames)
             {
-                if (exames[i] != null)
-                    Console.WriteLine(exames[i]);
+                Console.WriteLine(e.ToString());
             }
         }
 
@@ -83,43 +84,126 @@ namespace Dados
         }
 
         /// <summary>
-        /// Imprime os detalhes de todos os diagnosticos dentro do array
+        /// Imprime os detalhes de todos os diagnosticos dentro da Lista
         /// </summary>
         /// <param name="diagnosticos"></param>
-        public static void ImprimirDiagnosticos(Diagnosticos[] diagnosticos)
+        public static void ImprimirDiagnosticos(List<Diagnostico> Diagnostico)
         {
-            for (int i = 0; i < diagnosticos.Length; i++)
+            foreach (Diagnostico d in Diagnostico)
             {
-                if (diagnosticos[i] != null)
-                    Console.WriteLine(diagnosticos[i]);
+                Console.WriteLine(d.ToString());
             }
         }
 
         /// <summary>
-        /// Imprime os detalhes de todas as Cirurgias dentro do array
+        /// Imprime os detalhes de todas as Cirurgias dentro da Lista
         /// </summary>
         /// <param name="cirurgias"></param>
-        public static void ImprimirCirurgias(Cirurgias[] cirurgias)
+        public static void ImprimirCirurgias(List<Cirurgia> cirurgias)
         {
-            for (int i = 0; i < cirurgias.Length; i++)
+            foreach (Cirurgia c in cirurgias)
             {
-                if (cirurgias[i] != null)
-                    Console.WriteLine(cirurgias[i]);
+                Console.WriteLine(c.ToString());
             }
         }
 
         /// <summary>
-        /// Imprime os detalhes de todos os internamentos dentro do array
+        /// Imprime os detalhes de todos os internamentos dentro da Lista
         /// </summary>
         /// <param name="internamentos"></param>
-        public static void ImprimirInternamentos(Internamentos[] internamentos)
+        public static void ImprimirInternamentos(List<Internamento> internamentos)
         {
-            for (int i = 0; i < internamentos.Length; i++)
+            foreach (Internamento i in internamentos)
             {
-                if (internamentos[i] != null)
-                    Console.WriteLine(internamentos[i]);
+                Console.WriteLine(i.ToString());
             }
         }
+
+        #endregion
+
+        #region IMPRIMIR POR PACIENTE
+
+        /// <summary>
+        /// Método para mostrar as consultas de um paciente
+        /// </summary>
+        /// <param name="consultas"></param>
+        /// <param name="nus"></param>
+        public static void ImprimirConsultasPorPaciente(List<Consulta> consultas,int nus)
+        {
+            foreach (Consulta c in consultas)
+            {
+                if (c.Nus == nus)
+                {
+                    Console.WriteLine(c.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Método para mostrar os exames de um paciente
+        /// </summary>
+        /// <param name="exames"></param>
+        /// <param name="nus"></param>
+        public static void ImprimirExamesPorPaciente(List<Exame> exames,int nus)
+        {
+            foreach (Exame e in exames)
+            {
+                if (e.Nus == nus)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Método para mostrar os diagnosticos de um paciente
+        /// </summary>
+        /// <param name="Diagnostico"></param>
+        /// <param name="nus"></param>
+        public static void ImprimirDiagnosticosPorPaciente(List<Diagnostico> Diagnostico,int nus)
+        {
+            foreach (Diagnostico d in Diagnostico)
+            {
+                if (d.Nus == nus) 
+                { 
+                    Console.WriteLine(d.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Método para mostrar as cirurgias de um paciente
+        /// </summary>
+        /// <param name="cirurgias"></param>
+        /// <param name="nus"></param>
+        public static void ImprimirCirurgiasPorPaciente(List<Cirurgia> cirurgias,int nus)
+        {
+            foreach (Cirurgia c in cirurgias)
+            {
+                if (c.Nus == nus)
+                {
+                    Console.WriteLine(c.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Método para mostrar os internamentos de um paciente
+        /// </summary>
+        /// <param name="internamentos"></param>
+        /// <param name="nus"></param>
+        public static void ImprimirInternamentosPorPaciente(List<Internamento> internamentos,int nus)
+        {
+            foreach (Internamento i in internamentos)
+            {
+                if (i.Nus == nus)
+                {
+                    Console.WriteLine(i.ToString());
+                }
+            }
+        }
+
+        #endregion
 
     }
 }
