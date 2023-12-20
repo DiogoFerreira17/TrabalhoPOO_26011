@@ -12,6 +12,7 @@ using System.Collections.Generic;
 
 // Externo
 using ObjetosHospital;
+using Excecoes;
 
 namespace Dados
 {
@@ -26,7 +27,6 @@ namespace Dados
         #region ATRIBUTOS
 
         static List<Consulta> consultas;
-        static int numConsultas;
 
         #endregion
 
@@ -38,7 +38,6 @@ namespace Dados
         {
             if (consultas == null)
             {
-                numConsultas = 0;
                 consultas = new List<Consulta>();
             }
         }
@@ -58,11 +57,6 @@ namespace Dados
             get { return new List<Consulta>(consultas); }
         }
 
-        public static int NumConsultas
-        {
-            get { return numConsultas; }
-        }
-
         #endregion
 
         #region MÉTODOS
@@ -76,8 +70,11 @@ namespace Dados
         {
             if(c!=null && !consultas.Contains(c))
             {
+                if (c.Data < new DateTime(2023, 1, 1) || c.Data > new DateTime(2030, 1, 1))
+                {
+                    throw new DataInvalidaException("A base de dados não contem consultas anteriores a 2023/1/1 e posteriores a 2030/1/1");
+                }
                 consultas.Add(c);
-                numConsultas++;
                 return true;
             }
             return false;
@@ -93,10 +90,37 @@ namespace Dados
             if (c != null && consultas.Contains(c))
             {
                 consultas.Remove(c);
-                numConsultas--;
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de consultas
+        /// </summary>
+        /// <returns></returns>
+        public static List<Consulta> TodasConsultas()
+        {
+            return ListaConsultas;
+        }
+
+        /// <summary>
+        /// Método que lista todas as consultas de um paciente
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static  List<Consulta> ConsultasPaciente(int nus)
+        {
+            List<Consulta> aux = new List<Consulta>();
+
+            foreach(Consulta c in consultas)
+            {
+                if (c.Nus == nus)
+                {
+                    aux.Add(c);
+                }
+            }
+            return aux;
         }
 
         #endregion

@@ -7,7 +7,9 @@
  * 7-11-2023
  */
 
+using System;
 using System.Collections.Generic;
+using Excecoes;
 
 // Externo
 using ObjetosHospital;
@@ -25,7 +27,6 @@ namespace Dados
         #region ATRIBUTOS
 
         static List<Cirurgia> cirurgias;
-        static int numCirurgias;
 
         #endregion
 
@@ -40,7 +41,6 @@ namespace Dados
         {
             if (cirurgias == null)
             {
-                numCirurgias = 0;
                 cirurgias = new List<Cirurgia>();
             }
         }
@@ -60,11 +60,6 @@ namespace Dados
             get { return new List<Cirurgia>(cirurgias); }
         }
 
-        public static int NumCirurgias
-        {
-            get { return numCirurgias; }
-        }
-
         #endregion
 
         #region MÉTODOS
@@ -78,8 +73,11 @@ namespace Dados
         {
             if (c != null && !cirurgias.Contains(c))
             {
+                if (c.DataCirurgia < new DateTime(2015, 1, 1))
+                {
+                    throw new DataInvalidaException("A base de dados não contem cirurgias anteriores a 2015");
+                }
                 cirurgias.Add(c);
-                numCirurgias++;
                 return true;
             }
             return false;
@@ -95,10 +93,18 @@ namespace Dados
             if (c != null && cirurgias.Contains(c))
             {
                 cirurgias.Remove(c);
-                numCirurgias--;
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de Cirurgias
+        /// </summary>
+        /// <returns></returns>
+        public static List<Cirurgia> TodasCirurgias()
+        {
+            return ListaCirurgias;
         }
 
         #endregion

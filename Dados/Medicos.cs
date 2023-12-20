@@ -7,7 +7,6 @@
  * 7-11-2023
  */
 
-using System;
 using System.Collections.Generic;
 
 // Externo
@@ -18,14 +17,13 @@ namespace Dados
     /// <summary>
     /// Classe que gere um conjunto de Medicos
     /// </summary>
-    public class Medicos
+    public class Medicos 
     {
         /// <summary>
         /// Campos privados para armazenar o estado de Medicos
         /// </summary>
         #region ATRIBUTOS
 
-        static int numMedicos;
         static List<Medico> medicos;
 
         #endregion
@@ -38,7 +36,6 @@ namespace Dados
         {
             if(medicos==null)
             {   
-                numMedicos = 0;
                 medicos = new List<Medico> ();
             }
         }
@@ -58,11 +55,6 @@ namespace Dados
             get { return new List<Medico>(medicos); }
         }
 
-        public static int NumMedicos
-        {
-            get { return numMedicos; }
-        }
-
         #endregion
 
         #region OUTROS MÉTODOS
@@ -77,7 +69,6 @@ namespace Dados
             if (m != null && !medicos.Contains(m))
             {
                 medicos.Add(m);
-                numMedicos++;
                 return true;
             }
             return false;
@@ -93,7 +84,6 @@ namespace Dados
            if(m!=null && medicos.Contains(m))
             {
                 medicos.Remove(m);
-                numMedicos--;
                 return true;
             }
             return false;
@@ -107,6 +97,15 @@ namespace Dados
         public static Medico ObterMedicoPorNus(int idMedico)
         {
             return medicos.Find(m => m != null && m.IdMedico == idMedico);  // m => (declara variavel)
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de médicos
+        /// </summary>
+        /// <returns></returns>
+        public static List<Medico> TodosMedicos()
+        {
+            return ListaMedicos;
         }
 
         #endregion

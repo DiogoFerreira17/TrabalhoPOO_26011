@@ -9,12 +9,15 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 // Externo
 using ObjetosHospital;
 
 namespace Dados
-{         
+{
+    [Serializable]
     public class Pacientes
     {
         /// <summary>
@@ -23,7 +26,6 @@ namespace Dados
         #region ATRIBUTOS
 
         static List<Paciente> pacientes;
-        static int numPacientes; // numero de pacientes inseridos na Lista
 
         #endregion
 
@@ -35,7 +37,6 @@ namespace Dados
         {
             if (pacientes == null)
             {
-                numPacientes = 0;
                 pacientes = new List<Paciente>();
             }
         }
@@ -47,16 +48,9 @@ namespace Dados
         /// </summary>
         #region PROPRIEDADES
 
-        public static List<Paciente> ListaPacientes
+        public static List<Paciente> listaPacientes
         {
-            get { 
-                return new List<Paciente>(pacientes); 
-            }
-        }
-
-        public static int NumPacientes
-        {
-            get { return numPacientes; }
+            get { return new List<Paciente>(pacientes); }
         }
 
         #endregion
@@ -73,7 +67,6 @@ namespace Dados
             if (p != null && !pacientes.Contains(p)) 
             {
                 pacientes.Add(p);
-                numPacientes++;
                 return true;
             }
             return false;
@@ -89,7 +82,6 @@ namespace Dados
             if (p != null && pacientes.Contains(p))
             {
                 pacientes.Remove(p);
-                numPacientes--;
                 return true;
             }
             return false;
@@ -113,6 +105,65 @@ namespace Dados
         public static bool ExistePacienteLista(int nus)
         {
             return ObterPacientePorNus(nus) != null;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de pacientes
+        /// </summary>
+        /// <returns></returns>
+        public static List<Paciente> ListaPacientes()
+        {
+            return pacientes;
+        }
+
+        /// <summary>
+        /// Guarda Lista em ficheiro
+        /// </summary>
+        /// <param name="nomeFicheiro"></param>
+        /// <returns></returns>
+        public static bool GuardarFicheiroPacientes(string nomeFicheiro)
+        {
+            if (!File.Exists(nomeFicheiro))
+            {
+                try
+                {
+                    Stream stream = File.Open(nomeFicheiro, FileMode.Create);
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, pacientes);
+                    stream.Close();
+                    return true;
+                }
+                catch (IOException e)
+                {
+                    throw e;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para ler ficheiro 
+        /// </summary>
+        /// <param name="nomeFicheiro"></param>
+        /// <returns></returns>
+        public static bool LerFicheiroPacientes(string nomeFicheiro)
+        {
+            if (File.Exists(nomeFicheiro))
+            {
+                try
+                {
+                    Stream stream = File.Open(nomeFicheiro, FileMode.Open);
+                    BinaryFormatter bin = new BinaryFormatter();
+                    pacientes = (List<Paciente>)bin.Deserialize(stream);
+                    stream.Close();
+                    return true;
+                }
+                catch (IOException e)
+                {
+                    throw e;
+                }
+            }
+            return false;
         }
 
         #endregion

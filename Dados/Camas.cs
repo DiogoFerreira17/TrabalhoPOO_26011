@@ -6,7 +6,7 @@
  * Escola Superior de Técnologia
  * 7-11-2023
  */
-
+using System;
 using System.Collections.Generic;
 
 // Externo
@@ -25,7 +25,6 @@ namespace Dados
         #region ATRIBUTOS
 
         static List<Cama> camas;
-        static int numCamas;
 
         #endregion
 
@@ -40,7 +39,6 @@ namespace Dados
         {
             if (camas == null)
             {
-                numCamas = 0;
                 camas = new List<Cama>();
             }
         }
@@ -60,11 +58,6 @@ namespace Dados
             get { return new List<Cama>(camas); }
         }
 
-        public static int NumCamas 
-        { 
-            get { return numCamas; }
-        }
-
         #endregion
 
         #region OUTROS MÉTODOS
@@ -78,8 +71,11 @@ namespace Dados
         {
             if(c!=null && !camas.Contains(c))
             {
+                if (camas.Count >= 5) // VERIFICAR COM O PROF   (5 -> NUMERO DE CAMAS QUE O HOSPITAL SUPORTA)
+                {
+                    throw new Exception("O hospital não suporta mais camas.");
+                }
                 camas.Add(c);
-                numCamas++;
                 return true;
             }
             return false;
@@ -95,7 +91,6 @@ namespace Dados
             if (c != null && camas.Contains(c))
             {
                 camas.Remove(c);
-                numCamas--;
                 return true;
             }
             return false;
@@ -108,16 +103,13 @@ namespace Dados
         /// <returns></returns>
         public static bool InserirPacienteCama(int nus)
         {
-            if (Pacientes.ExistePacienteLista(nus))
+            foreach (Cama c in camas)
             {
-                foreach (Cama c in camas)
+                if (c.Status == "livre")
                 {
-                    if (c.Status == "livre")
-                    {
-                        c.Nus = nus;
-                        c.Status = "ocupada";
-                        return true;
-                    }
+                    c.Nus = nus;
+                    c.Status = "ocupada";
+                    return true;
                 }
             }
             return false;
@@ -130,16 +122,13 @@ namespace Dados
         /// <returns></returns>
         public static bool RemoverPacienteCama(int nus)
         {
-            if (Pacientes.ExistePacienteLista(nus))
+            foreach (Cama c in camas)
             {
-                foreach (Cama c in camas)
+                if (c.Nus==nus)
                 {
-                    if (c.Nus==nus)
-                    {
-                        c.Nus = 0;
-                        c.Status = "livre";
-                        return true;
-                    }
+                    c.Nus = 0;
+                    c.Status = "livre";
+                    return true;
                 }
             }
             return false;
@@ -152,17 +141,43 @@ namespace Dados
         /// <returns></returns>
         public static int IdCamaPaciente(int nus)
         {
+            foreach(Cama c in camas)
+            {
+                if (c.Nus == nus)
+                {
+                    return c.IdCama; // retorna id para identificar a cama no internamento
+                }
+            }
+            return 0; 
+        }
+
+        /// <summary>
+        /// Método para verificar se um paciente ja está numa cama
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static bool VerificaPacienteCama(int nus)
+        {
             if (Pacientes.ExistePacienteLista(nus))
             {
-                foreach(Cama c in camas)
+                foreach (Cama c in camas)
                 {
                     if (c.Nus == nus)
                     {
-                        return c.IdCama; // retorna id para identificar a cama no internamento
+                        return true;
                     }
                 }
             }
-            return 0;
+            return false;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de camas
+        /// </summary>
+        /// <returns></returns>
+        public static List<Cama> TodasCamas()
+        {
+            return ListaCamas;
         }
 
         #endregion

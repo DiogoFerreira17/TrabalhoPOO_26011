@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+using Excecoes;
 
 // Externo
 using ObjetosHospital;
@@ -26,7 +27,6 @@ namespace Dados
         #region ATRIBUTOS
 
         static List<Exame> exames;
-        static int numExames;
 
         #endregion
 
@@ -38,7 +38,6 @@ namespace Dados
         {
             if (exames == null)
             {
-                numExames = 0;
                 exames = new List<Exame> ();
             }
         }
@@ -58,11 +57,6 @@ namespace Dados
             get { return new List<Exame>(exames); }
         }
 
-        public static int NumExames
-        {
-            get { return numExames; }
-        }
-
         #endregion
 
         #region OUTROS MÉTODOS
@@ -76,8 +70,11 @@ namespace Dados
         {
             if (e != null && !exames.Contains(e))
             {
+                if (e.Data < new DateTime(2015, 1, 1))
+                {
+                    throw new DataInvalidaException("A base de dados não contem exames anteriores a 2015");
+                }
                 exames.Add(e);
-                numExames++;
                 return true;
             }
             return false;
@@ -93,7 +90,6 @@ namespace Dados
             if (e != null && exames.Contains(e))
             {
                 exames.Remove(e);
-                numExames--;
                 return true;
             }
             return false;
@@ -114,6 +110,49 @@ namespace Dados
                 }
             }
             return 0;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de exames
+        /// </summary>
+        /// <returns></returns>
+        public static List<Exame> TodosExames()
+        {
+            return ListaExames;
+        }
+
+        /// <summary>
+        /// Método que retorna uma lista de exames feitos por um pacientes
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public static List<Exame> ExamesPaciente(int nus)
+        {
+            List<Exame> aux = new List<Exame>();
+
+            foreach(Exame e in exames)
+            {
+                if (e.Nus == nus)
+                {
+                    aux.Add(e);
+                }
+            }
+            return aux;
+        }
+
+        /// <summary>
+        /// Método que devolve o custo total dos exames feitos por um paciente
+        /// </summary>
+        /// <param name="aux"></param>
+        /// <returns></returns>
+        public static double CustoExamesPaciente(List<Exame> aux)
+        {
+            double custoTotal = 0;
+            foreach(Exame e in aux)
+            {
+                custoTotal += e.PrecoExame;
+            }
+            return custoTotal;
         }
 
         #endregion

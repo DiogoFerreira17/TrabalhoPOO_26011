@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Excecoes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Excecoes\bin\Debug\Excecoes.dll</HintPath>
+    </Reference>
     <Reference Include="ObjetosHospital">
       <HintPath>..\ObjetosHospital\bin\Debug\ObjetosHospital.dll</HintPath>
     </Reference>
@@ -49,7 +53,6 @@
     <Compile Include="Consultas.cs" />
     <Compile Include="Diagnosticos.cs" />
     <Compile Include="Exames.cs" />
-    <Compile Include="InOut.cs" />
     <Compile Include="Internamentos.cs" />
     <Compile Include="Medicos.cs" />
     <Compile Include="Pacientes.cs" />

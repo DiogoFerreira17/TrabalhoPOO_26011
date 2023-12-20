@@ -9,11 +9,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-
 
 // Externo
 using ObjetosHospital;
+
 
 namespace Dados
 {
@@ -28,7 +27,6 @@ namespace Dados
         #region ATRIBUTOS
 
         static List<Internamento> internamentos;
-        static int numInternamentos;
 
         #endregion
 
@@ -41,10 +39,8 @@ namespace Dados
         /// </summary>
         static Internamentos()
         {
-            
             if (internamentos == null)
             {   
-                numInternamentos = 0;
                 internamentos = new List<Internamento>();
             }
         }
@@ -64,11 +60,6 @@ namespace Dados
             get { return new List<Internamento>(internamentos); }
         }
 
-        public static int NumInternamentos
-        {
-            get { return numInternamentos; }
-        }
-
         #endregion
 
         #region OUTROS MÉTODOS
@@ -82,8 +73,11 @@ namespace Dados
         {
             if (I != null && !internamentos.Contains(I))
             {
+                if (I.DataInicio > I.DataFim)
+                {
+                    throw new Exception();
+                }
                 internamentos.Add(I);
-                numInternamentos++;
                 return true;
             }
             return false;
@@ -99,7 +93,6 @@ namespace Dados
             if (I != null && internamentos.Contains(I))
             {
                 internamentos.Add(I);
-                numInternamentos++;
                 return true;
             }
             return false;
@@ -112,18 +105,13 @@ namespace Dados
         /// <param name="dataInicio"></param>
         /// <param name="dataFim"></param>
         /// <returns></returns>
-        public static int DiasInternamentoPaciente(int nus)
+        public static int DiasInternamentoPaciente(int nus,DateTime diaInternamento)
         {
             foreach(Internamento i in internamentos)
             {
-                if (i.Nus == nus)
+                if (i.Nus == nus && i.DataInicio == diaInternamento)
                 {
-                    if (i.DataInicio > i.DataFim)
-                    {
-                        throw new ArgumentException("A data de início não pode ser posterior à data de fim.");
-                    }
-                    // Calcula a diferença em dias entre as duas datas
-                    TimeSpan diferenca = i.DataFim - i.DataInicio;
+                    TimeSpan diferenca = i.DataFim - i.DataInicio; // Calcula a diferença em dias entre as duas datas
                     int diasInternamento = diferenca.Days;
 
                     return diasInternamento;
@@ -136,18 +124,27 @@ namespace Dados
         /// </summary>
         /// <param name="nus"></param>
         /// <returns></returns>
-        public static double CalculaCustoInternamento(int nus)
+        public static double CalculaCustoInternamento(int nus,DateTime diaInternamento)
         {
             double precoDia = 1.50; // preço aleatório por cada dia internado
             foreach(Internamento i in internamentos)
             {
-                if (i.Nus == nus)
+                if (i.Nus == nus && i.DataInicio==diaInternamento)
                 {  
-                    i.PrecoInternamento = DiasInternamentoPaciente(nus)*precoDia;
-                    return i.PrecoInternamento; // apenas para teste (a função poderia ser void)
+                    i.PrecoInternamento = DiasInternamentoPaciente(nus,diaInternamento) * precoDia;
+                    return i.PrecoInternamento; // apenas para teste, a função poderia ser void )
                 }
             }
             return 0;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de Internamentos
+        /// </summary>
+        /// <returns></returns>
+        public static List<Internamento> TodosInternamentos()
+        {
+            return ListaInternamentos;
         }
 
         #endregion

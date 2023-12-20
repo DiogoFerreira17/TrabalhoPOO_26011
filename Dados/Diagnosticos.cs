@@ -7,10 +7,12 @@
  * 7-11-2023
  */
 
+using System;
 using System.Collections.Generic;
 
 // Externo
 using ObjetosHospital;
+using Excecoes;
 
 namespace Dados
 {
@@ -25,7 +27,6 @@ namespace Dados
         #region ATRIBUTOS
 
         static List<Diagnostico> diagnosticos;
-        static int numDiagnosticos;
 
         #endregion
 
@@ -40,7 +41,6 @@ namespace Dados
         {
             if (diagnosticos == null)
             {
-                numDiagnosticos = 0;
                 diagnosticos = new List<Diagnostico>();
             }
         }
@@ -60,11 +60,6 @@ namespace Dados
             get { return new List<Diagnostico>(diagnosticos); }
         }
 
-        public static int NumDiagnosticos
-        {
-            get { return numDiagnosticos; }
-        }
-
         #endregion
 
         #region OUTROS MÉTODOS
@@ -78,8 +73,11 @@ namespace Dados
         {
             if(d!=null && !diagnosticos.Contains(d))
             {
+                if (d.Data < new DateTime(2015, 1, 1))
+                {
+                    throw new DataInvalidaException("A base de dados não contem diagnósticos anteriores a 2015");
+                }
                 diagnosticos.Add(d);
-                numDiagnosticos++;
                 return true;
             }
             return false;
@@ -95,10 +93,18 @@ namespace Dados
             if (d != null && diagnosticos.Contains(d))
             {
                 diagnosticos.Remove(d);
-                numDiagnosticos--;
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de diagnosticos
+        /// </summary>
+        /// <returns></returns>
+        public static List<Diagnostico> TodosDiagnosticos()
+        {
+            return ListaDiagnosticos;
         }
 
         #endregion
