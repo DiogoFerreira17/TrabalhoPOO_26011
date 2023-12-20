@@ -7,6 +7,7 @@
  * 7-11-2023
  */
 
+using Excecoes;
 using System;
 
 namespace ObjetosHospital
@@ -90,10 +91,6 @@ namespace ObjetosHospital
 
         #region OUTROS MÉTODOS
 
-        // Método para calcular os dias que o paciente esteve internado
-
-        // Método para ver a cama do paciente ???? 
-
         #endregion
 
         #region OVERRIDES
@@ -104,7 +101,23 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("dataCirurgia:{0} NUS:{1} IdMédico:{2} preçoCirurgia:{3}$", DataCirurgia,Nus,IdMedico,PrecoCirurgia);
+            return String.Format("dataCirurgia:{0} NUS:{1} IdMédico:{2} preçoCirurgia:{3}$", DataCirurgia.ToShortDateString(), Nus,IdMedico,PrecoCirurgia);
+        }
+
+        /// <summary>
+        /// Verifica se o objeto Cirurgia é igual a outro objeto Cirurgia
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            if (obj is Cirurgia)
+            {
+                Cirurgia c = (Cirurgia)obj;
+                if (c.DataCirurgia==DataCirurgia && c.Nus==Nus && c.IdMedico==IdMedico && c.PrecoCirurgia==PrecoCirurgia)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion

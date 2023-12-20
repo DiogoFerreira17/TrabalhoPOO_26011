@@ -7,6 +7,7 @@
  * 7-11-2023
  */
 
+using Excecoes;
 using System;
 
 namespace ObjetosHospital
@@ -120,7 +121,23 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("IdConsulta:{0} dataConsulta:{1} Descrição:{2} NUS:{3} IdMédico:{4} preçoConsulta:{5}$",IdConsulta,Data,Descricao,Nus,IdMedico,PrecoConsulta);
+            return String.Format("IdConsulta:{0} dataConsulta:{1} Descrição:{2} NUS:{3} IdMédico:{4} preçoConsulta:{5}$",IdConsulta,Data.ToShortDateString(), Descricao,Nus,IdMedico,PrecoConsulta);
+        }
+
+        /// <summary>
+        /// Verifica se o objeto Consulta é igual a outro objeto Consulta
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            if (obj is Consulta)
+            {
+                Consulta c = (Consulta)obj;
+                if (c.IdConsulta==IdConsulta && c.Descricao==Descricao && c.Data==Data && c.Nus==Nus && c.IdMedico==IdMedico && c.PrecoConsulta==PrecoConsulta)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion

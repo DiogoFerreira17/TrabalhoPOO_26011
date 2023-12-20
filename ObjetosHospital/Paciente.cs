@@ -8,14 +8,21 @@
  */
 
 using System;
+using System.Linq;
 
-public enum tipoSanguineo { OPositivo, ONegativo, APositivo, ANegativo, BPositivo, BNegativo, ABPositivo, ABNegativo }
+// Externo
+using Excecoes;
+
+
+
+public enum tipoSanguineo { OPOSITIVO, ONEGATIVO, APOSITIVO, ANEGATIVO, BPOSITIVO, BNEGATIVO, ABPOSITIVO, ABNEGATIVO }
 
 namespace ObjetosHospital
 {
     /// <summary>
     /// Representa um paciente, derivado da classe Pessoa
     /// </summary>
+    [Serializable]
     public class Paciente : Pessoa
     {
 
@@ -24,9 +31,9 @@ namespace ObjetosHospital
         /// </summary>
         #region Atributos
 
-        int nus; // numero utenete de saude
+        int nus; // numero utente de saude
         tipoSanguineo sangue;
-        static public int totalPacientes; // numero de pacientes criados
+        string segurancaSocial; // para usar nas regras 
 
         #endregion
 
@@ -39,11 +46,11 @@ namespace ObjetosHospital
         /// </summary>
         public Paciente()
         {
-            totalPacientes++;
             Nome = string.Empty;
-            sangue = tipoSanguineo.OPositivo;
+            sangue = tipoSanguineo.OPOSITIVO;
             nus = 000000000;
             DataNascimento = DateTime.Now;
+            segurancaSocial = "atraso";
         }
 
         /// <summary>
@@ -52,12 +59,20 @@ namespace ObjetosHospital
         /// <param name="nome"></param>
         /// <param name="nus"></param>
         /// <param name="sangue"></param>
-        public Paciente(string nome,DateTime dataNascimento, int nus, tipoSanguineo sangue)
+        public Paciente(string nome, DateTime dataNascimento, int nus, tipoSanguineo sangue,string segurancaSocial)
         {
-            totalPacientes++;
+            if(nome.Any(char.IsDigit))
+            {
+                throw new NomeInvalidoException();
+            }
             Nome = nome;
             this.sangue = sangue;
             this.nus = nus;
+            this.segurancaSocial = segurancaSocial;
+            if (dataNascimento > DateTime.Now)
+            {
+                throw new DataFuturaException();
+            }
             DataNascimento = dataNascimento;
         }
 
@@ -80,13 +95,32 @@ namespace ObjetosHospital
             set { sangue = value; }
         }
 
+        public string SegurancaSocial
+        {
+            get { return segurancaSocial; }
+            set { segurancaSocial = value; }
+        }
+
         #endregion
 
         #region OUTROS Metodos
 
-        #endregion
-
-        #region OUTROS MÉTODOS
+        /// <summary>
+        /// Método  para verificar se o NUS tem 9 algarismos
+        /// </summary>
+        /// <param name="nus"></param>
+        /// <returns></returns>
+        public bool VerificaNus(int nus)
+        {
+            int aux,count=0;
+            while (nus != 0)
+            {
+                aux=nus / 10;
+                nus = aux;
+                count++;
+            }
+            return count == 9;
+        }
 
         #endregion
 
@@ -109,7 +143,7 @@ namespace ObjetosHospital
             if (obj is Paciente)
             {
                 Paciente p = (Paciente)obj;
-                if ((p.Nome == Nome) && (p.Idade == Idade) && (p.Sangue == Sangue) && (p.DataNascimento == DataNascimento) && (p.Nus == Nus))
+                if (this==p)
                 {
                     return true;
                 }
@@ -119,39 +153,41 @@ namespace ObjetosHospital
 
         #endregion
 
-        //#region operadores
+        #region OPERADORES
 
-        ///// <summary>
-        ///// reesceita do operador de igualdade para comparar dois objetos do tipo paciente.
-        ///// </summary>
-        //public static bool operator ==(Paciente p1, Paciente p2)
-        //{
-        //    if ((p1.Nome == p2.Nome) && (p1.Idade == p2.Idade) && (p1.sangue == p2.sangue) && (p1.DataNascimento == p2.DataNascimento) && (p1.Nus == p2.Nus))
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+        /// <summary>
+        /// reesceita do operador de igualdade para comparar dois objetos do tipo paciente.
+        /// </summary>
+        public static bool operator ==(Paciente p1, Paciente p2)
+        {
+            if (ReferenceEquals(p1, null) && ReferenceEquals(p2, null)) return true;
+            if (ReferenceEquals(p1, null) || ReferenceEquals(p2, null)) return false;
+            if ((p1.Nome == p2.Nome) && (p1.Idade == p2.Idade) && (p1.sangue == p2.sangue) && (p1.DataNascimento == p2.DataNascimento) && (p1.Nus == p2.Nus) && (p1.SegurancaSocial==p2.SegurancaSocial))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        ///// <summary>
-        ///// reescrita do operador de desigualdade para comparar dois objetos do tipo paciente.
-        ///// </summary>
-        //public static bool operator !=(Paciente p1, Paciente p2)
-        //{
-        //    if (p1 == p2)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
+        /// <summary>
+        /// reescrita do operador de desigualdade para comparar dois objetos do tipo paciente.
+        /// </summary>
+        public static bool operator !=(Paciente p1, Paciente p2)
+        {
+            if (p1 == p2)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
-        //#endregion
+        #endregion
 
         #endregion
 

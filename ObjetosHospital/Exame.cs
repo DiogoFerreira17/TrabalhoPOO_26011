@@ -7,7 +7,9 @@
  * 7-11-2023
  */
 
+using Excecoes;
 using System;
+using System.Linq;
 
 namespace ObjetosHospital
 {
@@ -63,6 +65,10 @@ namespace ObjetosHospital
         public Exame(DateTime data, string resultado,string nome,int nus,int idMedico,double precoExame)
         {
             this.data = data;
+            if (nome.Any(char.IsDigit))
+            {
+                throw new NomeInvalidoException();
+            }
             this.nome = nome;
             this.resultado = resultado;
             this.nus = nus;
@@ -132,7 +138,23 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("IdExame:{0} DataExame:{1} NomeExame:{2} NUS:{3} idMédico:{4} Resultado:{5} Preço:{6}$", IdExame, Data, Nome, Nus, IdMedico, Resultado, PrecoExame);
+            return String.Format("IdExame:{0} DataExame:{1} NomeExame:{2} NUS:{3} idMédico:{4} Resultado:{5} Preço:{6}$", IdExame, Data.ToShortDateString(), Nome, Nus, IdMedico, Resultado, PrecoExame);
+        }
+
+        /// <summary>
+        /// Verifica se o objeto Exame é igual a outro objeto Exame
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            if (obj is Exame)
+            {
+                Exame e = (Exame)obj;
+                if (e.Data==Data && e.Nome==Nome && e.IdExame==IdExame && e.Nus==Nus && e.IdMedico==IdMedico && e.Resultado==Resultado && e.PrecoExame==PrecoExame)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion

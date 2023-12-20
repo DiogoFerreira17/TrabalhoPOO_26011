@@ -7,7 +7,9 @@
  * 7-11-2023
  */
 
+using Excecoes;
 using System;
+using System.Linq;
 
 namespace ObjetosHospital
 {
@@ -50,10 +52,18 @@ namespace ObjetosHospital
         /// <param name="nome"></param>
         /// <param name="data"></param>
         /// <param name="especialidade"></param>
-        public Medico(string nome, DateTime data,string especialidade)
+        public Medico(string nome, DateTime dataNascimento,string especialidade)
         {
+            if (nome.Any(char.IsDigit))
+            {
+                throw new NomeInvalidoException();
+            }
             Nome = nome;
-            DataNascimento = data;
+            if (dataNascimento > DateTime.Now)
+            {
+                throw new DataFuturaException();
+            }
+            DataNascimento = dataNascimento;
             this.especialidade = especialidade;
             idMedico=++numMedicos;
         }
@@ -77,39 +87,9 @@ namespace ObjetosHospital
 
         #endregion
 
-        //#region Operadores
+        #region OUTROS MÉTODOS
 
-        ///// <summary>
-        ///// Reesceita do operador de igualdade para comparar dois objetos do tipo médico
-        ///// </summary>
-        //public static bool operator ==(Medico m1, Medico m2)
-        //{
-        //    if ((m1.Nome == m2.Nome) && (m1.Idade == m2.Idade) && (m1.DataNascimento == m2.DataNascimento) && (m1.Especialidade == m2.Especialidade))
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
-        ///// <summary>
-        ///// Reescrita do operador de desigualdade para comparar dois objetos do tipo médico
-        ///// </summary>
-        //public static bool operator !=(Medico m1, Medico m2)
-        //{
-        //    if (m1 == m2)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
-
-        //#endregion
+        #endregion
 
         #region OVERRIDES
 
@@ -119,28 +99,24 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("Nome médico:{0} Idade:{1} Especialidade:{2} DataNascimento:{3} ", Nome,Idade, Especialidade, DataNascimento.ToShortDateString());
+            return String.Format("Nome médico:{0} Idade:{1} Especialidade:{2} DataNascimento:{3} ", Nome, Idade, Especialidade, DataNascimento.ToShortDateString());
         }
 
         /// <summary>
         /// Verifica se o objeto Médico é igual a outro objeto Médico
         /// </summary>
-        public override bool Equals(object obj) 
+        public override bool Equals(object obj)
         {
             if (obj is Medico)
             {
                 Medico m = (Medico)obj;
-                if ((m.IdMedico==IdMedico)&&(m.Nome == Nome) && (m.DataNascimento == DataNascimento)&&(m.Especialidade==Especialidade))
+                if ((m.IdMedico == IdMedico) && (m.Nome == Nome) && (m.DataNascimento == DataNascimento) && (m.Especialidade == Especialidade))
                 {
                     return true;
                 }
             }
             return false;
         }
-
-        #endregion
-
-        #region OUTROS MÉTODOS
 
         #endregion
 

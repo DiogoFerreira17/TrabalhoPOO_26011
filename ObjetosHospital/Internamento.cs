@@ -8,6 +8,7 @@
  */
 
 using System;
+using Excecoes;
 
 namespace ObjetosHospital
 {
@@ -53,6 +54,10 @@ namespace ObjetosHospital
         public Internamento(DateTime dataInicio,DateTime dataFim, int nus,int idCama)
         {
             this.dataInicio = dataInicio;
+            if (dataInicio > dataFim)
+            {
+                throw new DataInvalidaException();
+            }
             this.dataFim = dataFim;
             this.nus = nus;
             this.idCama = idCama;
@@ -109,7 +114,23 @@ namespace ObjetosHospital
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("dataInicio:{0} dataFim:{1} NUS:{2} IdCama:{3} preçoInternamento:{4}$", DataInicio,DataFim,Nus,IdCama,PrecoInternamento);
+            return String.Format("dataInicio:{0} dataFim:{1} NUS:{2} IdCama:{3} preçoInternamento:{4}$", DataInicio.ToShortDateString(), DataFim.ToShortDateString(), Nus,IdCama,PrecoInternamento);
+        }
+
+        /// <summary>
+        /// Verifica se o objeto Internamento é igual a outro objeto Internamento
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            if (obj is Internamento)
+            {
+                Internamento i = (Internamento)obj;
+                if (i.DataInicio==DataInicio && i.DataFim==DataFim && i.Nus==Nus && i.IdCama==IdCama && i.PrecoInternamento==PrecoInternamento)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion

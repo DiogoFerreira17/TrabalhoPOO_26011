@@ -6,15 +6,18 @@
  * Escola Superior de Técnologia
  * 7-11-2023
  */
-
 using System;
+
+// Externo
+using Excecoes;
 
 namespace ObjetosHospital
 {
     /// <summary>
     /// Classe que representa uma pessoa com algumas informações como nome, idade e data de nascimento
     /// </summary>
-    public class Pessoa 
+    [Serializable]
+    public class Pessoa : PessoaBase
     {
         #region Atributos
 
@@ -46,8 +49,11 @@ namespace ObjetosHospital
         public Pessoa(string nome,DateTime dataNascimento)
         {
             this.nome = nome;
+            if (dataNascimento > DateTime.Now)
+            {
+                throw new DataFuturaException();
+            }
             this.dataNascimento = dataNascimento;
-            idade = Idade;
         }
 
         #endregion
@@ -71,34 +77,44 @@ namespace ObjetosHospital
 
         public int Idade
         {
-            get { return GetIdade; }
+            get { return idade=CalculaIdade(dataNascimento); }
             set { idade= value; }
         }
 
         #endregion
 
-        #region MÉTODOS
+        #region OVERRIDES
 
         /// <summary>
-        /// Método para devolver a idade da pessoa
+        /// Metodo para mostrar parametros da Pessoa
         /// </summary>
-        public int GetIdade
+        /// <returns></returns>
+        public override string ToString()
         {
-            get
-            {
-                DateTime dataAtual = DateTime.Now;
-
-                int idade = dataAtual.Year - dataNascimento.Year;
-
-                if (dataNascimento.Date > dataAtual.AddYears(-idade))
-                {
-                    //No caso da pessoa ainda não ter feito anos
-                    idade--;
-                }
-
-                return idade;
-            }
+            return String.Format("Nome:{0} Idade:{1} DataNascimento:{2}", Nome, Idade, DataNascimento.ToShortDateString());
         }
+
+        /// <summary>
+        /// Verifica se o objeto Pessoa é igual a outro objeto Pessoa
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is Pessoa)
+            {
+                Pessoa p = (Pessoa)obj;
+                if ((p.Nome == Nome) && (p.Idade == Idade) && (p.DataNascimento == DataNascimento))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region OUTROS MÉTODOS
 
         #endregion
 

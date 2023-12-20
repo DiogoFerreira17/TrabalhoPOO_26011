@@ -71,14 +71,6 @@ namespace ObjetosHospital
 
         #region OUTROS MÉTODOS
 
-        // Método para inserir um paciente numa cama
-
-        // Método para remover um paciente de uma cama 
-
-        // Método para mostrar todas as camas com os devidos pacientes
-
-        // Método para mostrar em que cama está determinado paciente
-
         #endregion
 
         #region OVERRIDES
@@ -91,6 +83,23 @@ namespace ObjetosHospital
         {
             return String.Format("idCama:{0} Ocupação:{1} NUS:{2}",idCama,Status,Nus);
         }
+
+        /// <summary>
+        /// Verifica se o objeto Cama é igual a outro objeto Cama
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            if (obj is Cama)
+            {
+                Cama c = (Cama)obj;
+                if (c.status==Status && c.Nus==Nus && c.IdCama==IdCama)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         #endregion
 
         #endregion
