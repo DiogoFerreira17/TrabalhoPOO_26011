@@ -77,8 +77,8 @@ namespace ObjetosHospital
 
         public int Idade
         {
-            get { return idade=CalculaIdade(dataNascimento); }
-            set { idade= value; }
+            get { return idade = CalculaIdade(dataNascimento); }
+            set { idade=value; }
         }
 
         #endregion

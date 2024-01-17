@@ -49,7 +49,12 @@ namespace Regras
         /// <returns></returns>
         public static List<Paciente> ListaPacientes()
         {
-            return Pacientes.ListaPacientes();
+            return Pacientes.TodosPacientes();
+        }
+
+        public static List<Paciente> ListaPacientesOrdenados()
+        {
+            return Pacientes.TodosPacientesOrdenados();
         }
 
         /// <summary>
@@ -70,6 +75,5 @@ namespace Regras
         {
             return Pacientes.LerFicheiroPacientes(nomeFicheiro);
         }
-
     }
 }

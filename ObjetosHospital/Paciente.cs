@@ -13,8 +13,6 @@ using System.Linq;
 // Externo
 using Excecoes;
 
-
-
 public enum tipoSanguineo { OPOSITIVO, ONEGATIVO, APOSITIVO, ANEGATIVO, BPOSITIVO, BNEGATIVO, ABPOSITIVO, ABNEGATIVO }
 
 namespace ObjetosHospital
@@ -23,7 +21,7 @@ namespace ObjetosHospital
     /// Representa um paciente, derivado da classe Pessoa
     /// </summary>
     [Serializable]
-    public class Paciente : Pessoa
+    public class Paciente : Pessoa,IComparable<Paciente>
     {
 
         /// <summary>
@@ -103,7 +101,7 @@ namespace ObjetosHospital
 
         #endregion
 
-        #region OUTROS Metodos
+        #region OUTROS METODOS
 
         /// <summary>
         /// Método  para verificar se o NUS tem 9 algarismos
@@ -120,6 +118,34 @@ namespace ObjetosHospital
                 count++;
             }
             return count == 9;
+        }
+
+        //public int CompareTo(Paciente p)
+        //{
+        //    if (p == null)
+        //    {
+        //        return 1; // um objeto nulo é "maior" que qualquer objeto não nulo
+        //    }
+        //    // Comparar NUS
+        //    return Nus.CompareTo(p.Nus);
+        //}
+
+        /// <summary>
+        /// Compara dois Objetos pelo seu Nus
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public int CompareTo(Paciente p)
+        {
+            if (Nus > p.Nus)
+            {
+                return 1;
+            }
+            else if (Nus < p.Nus)
+            {
+                return -1;
+            }
+            return 0;
         }
 
         #endregion

@@ -62,7 +62,7 @@ namespace Dados
 
         #endregion
 
-        #region MÉTODOS
+        #region OUTROS MÉTODOS
 
         /// <summary>
         /// Método para inserir uma cirurgia na Lista

@@ -17,6 +17,9 @@ using ObjetosHospital;
 
 namespace Dados
 {
+    /// <summary>
+    /// Classe que gere um conjunto de pacientes
+    /// </summary>
     [Serializable]
     public class Pacientes
     {
@@ -48,7 +51,7 @@ namespace Dados
         /// </summary>
         #region PROPRIEDADES
 
-        public static List<Paciente> listaPacientes
+        public static List<Paciente> ListaPacientes
         {
             get { return new List<Paciente>(pacientes); }
         }
@@ -111,9 +114,20 @@ namespace Dados
         /// Método para retornar a Lista de pacientes
         /// </summary>
         /// <returns></returns>
-        public static List<Paciente> ListaPacientes()
+        public static List<Paciente> TodosPacientes()
         {
-            return pacientes;
+            return ListaPacientes;
+        }
+
+        /// <summary>
+        /// Método para retornar a Lista de pacientes ordenados pelo NUS
+        /// </summary>
+        /// <returns></returns>
+        public static List<Paciente> TodosPacientesOrdenados()
+        {
+            List<Paciente> aux=TodosPacientes();
+            aux.Sort();
+            return aux;
         }
 
         /// <summary>

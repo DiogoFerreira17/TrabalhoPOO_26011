@@ -71,7 +71,7 @@ namespace Dados
         {
             if(c!=null && !camas.Contains(c))
             {
-                if (camas.Count >= 5) // VERIFICAR COM O PROF   (5 -> NUMERO DE CAMAS QUE O HOSPITAL SUPORTA)
+                if (camas.Count >= 5) //  (5 -> NUMERO DE CAMAS QUE O HOSPITAL SUPORTA)
                 {
                     throw new Exception("O hospital não suporta mais camas.");
                 }
@@ -158,14 +158,11 @@ namespace Dados
         /// <returns></returns>
         public static bool VerificaPacienteCama(int nus)
         {
-            if (Pacientes.ExistePacienteLista(nus))
+            foreach (Cama c in camas)
             {
-                foreach (Cama c in camas)
+                if (c.Nus == nus)
                 {
-                    if (c.Nus == nus)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;

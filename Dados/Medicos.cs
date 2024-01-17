@@ -105,7 +105,7 @@ namespace Dados
         /// <returns></returns>
         public static List<Medico> TodosMedicos()
         {
-            return ListaMedicos;
+            return ListaMedicos;//REVER
         }
 
         #endregion

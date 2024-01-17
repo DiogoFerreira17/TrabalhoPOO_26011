@@ -1,5 +1,4 @@
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.AssemblyReference.cache
-C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.SuggestedBindingRedirects.cache
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\obj\Debug\GereHospital.csproj.CoreCompileInputs.cache
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\bin\Debug\GereHospital.exe.config
 C:\Users\ferre\OneDrive\Ambiente de Trabalho\Programação Orientada a Objetos\TrabalhoPOO_26011\GereHospital\bin\Debug\GereHospital.exe
